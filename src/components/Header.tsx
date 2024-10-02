@@ -8,18 +8,27 @@ import Typography from "@mui/material/Typography"
 import Menu from "@mui/material/Menu"
 import MenuIcon from "@mui/icons-material/Menu"
 import Container from "@mui/material/Container"
-import Avatar from "@mui/material/Avatar"
-import Button from "@mui/material/Button"
-import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
-import AdbIcon from "@mui/icons-material/Adb"
+import LocalMallIcon from "@mui/icons-material/LocalMall"
 import { BRAND_NAME } from "@/constants"
+import { useAppSelector } from "@/app/hooks"
+import { selectLoggedInUserRole } from "@/app/login/loggedInUserSlice"
+import Link from "@mui/material/Link"
+import NextLink from "next/link"
+import { usePathname, useRouter } from "next/navigation"
+import ProfileMenuButton from "./ProfileMenuButton"
 
-const userPages = ["Home", "My Orders", "Logout"]
-// const adminPages = ["Home",'Users', "Logout"]
+const allPages = [
+  { label: "Products", path: "/products" },
+  { label: "My Orders", path: "/orders" },
+  { label: "View Cart", path: "/cart" },
+  { label: "Dashboard", path: "/dashboard" },
+  { label: "Customers", path: "/customers" },
+]
 
 export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
+  const [options] = React.useState(allPages)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget)
@@ -29,16 +38,25 @@ export default function Header() {
     setAnchorElNav(null)
   }
 
+  const router = useRouter()
+  const handleMenuItemClick = (path: string) => {
+    router.push(path)
+    handleCloseNavMenu()
+  }
+
+  const pathname = usePathname()
+  const loggedInUserRole = useAppSelector(selectLoggedInUserRole)
+  const userPages =
+    loggedInUserRole === "admin" ? options.slice(3) : options.slice(0, 3)
   return (
     <AppBar>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <LocalMallIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -78,19 +96,18 @@ export default function Header() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: "block", md: "none" } }}
             >
-              {userPages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+              {userPages.map(({ label, path }) => (
+                <MenuItem key={label} onClick={() => handleMenuItemClick(path)}>
+                  <Typography sx={{ textAlign: "center" }}>{label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <LocalMallIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -103,23 +120,24 @@ export default function Header() {
           >
             {BRAND_NAME}
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {userPages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+          <Box
+            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, gap: 4 }}
+          >
+            {userPages.map(({ label, path }) => (
+              <Link
+                key={label}
+                component={NextLink}
+                color="inherit"
+                underline={pathname === path ? "always" : "hover"}
+                href={path}
+                fontWeight={pathname === path ? "600" : "400"}
               >
-                {page}
-              </Button>
+                {label}
+              </Link>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <Avatar sx={{ width: 32, height: 32, fontSize: "14px" }}>
-                UO
-              </Avatar>
-            </Tooltip>
+            <ProfileMenuButton />
           </Box>
         </Toolbar>
       </Container>

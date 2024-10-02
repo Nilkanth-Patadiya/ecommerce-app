@@ -11,20 +11,13 @@ const roboto = Roboto({
 const theme = createTheme({
   palette: {
     mode: "light",
+    text: {
+      primary: "#212121", // Very dark gray for primary text
+      secondary: "#757575", // Medium gray for secondary text
+    },
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
-  },
-  components: {
-    MuiAlert: {
-      styleOverrides: {
-        root: ({ ownerState }) => ({
-          ...(ownerState.severity === "info" && {
-            backgroundColor: "#60a5fa",
-          }),
-        }),
-      },
-    },
   },
 })
 

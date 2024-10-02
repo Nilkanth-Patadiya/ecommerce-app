@@ -1,5 +1,6 @@
 [
   {
+    "id": 120,
     "productName": "Ultra HD Smart TV",
     "category": "Television",
     "price": 45999,
@@ -8,6 +9,7 @@
     "imageURL": "https://example.com/images/ultra_hd_smart_tv.jpg"
   },
   {
+    "id": 121,
     "productName": "Wireless Noise-Cancelling Headphones",
     "category": "Audio",
     "price": 12499,
@@ -16,6 +18,7 @@
     "imageURL": "https://example.com/images/wireless_headphones.jpg"
   },
   {
+    "id": 122,
     "productName": "Gaming Laptop",
     "category": "Computers",
     "price": 89999,
@@ -24,6 +27,7 @@
     "imageURL": "https://example.com/images/gaming_laptop.jpg"
   },
   {
+    "id": 123,
     "productName": "Smartwatch",
     "category": "Wearables",
     "price": 9999,
@@ -32,6 +36,7 @@
     "imageURL": "https://example.com/images/smartwatch.jpg"
   },
   {
+    "id": 124,
     "productName": "Bluetooth Speaker",
     "category": "Audio",
     "price": 3499,
@@ -40,118 +45,7 @@
     "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
   },
   {
-    "productName": "DSLR Camera",
-    "category": "Cameras",
-    "price": 54999,
-    "description": "24.1 MP DSLR camera with 18-55mm lens kit and full HD video recording.",
-    "stock": 20,
-    "imageURL": "https://example.com/images/dslr_camera.jpg"
-  },
-  {
-    "productName": "Bluetooth Speaker",
-    "category": "Audio",
-    "price": 3499,
-    "description": "Portable Bluetooth speaker with 10-hour battery life and water-resistant design.",
-    "stock": 60,
-    "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
-  },
-  {
-    "productName": "DSLR Camera",
-    "category": "Cameras",
-    "price": 54999,
-    "description": "24.1 MP DSLR camera with 18-55mm lens kit and full HD video recording.",
-    "stock": 20,
-    "imageURL": "https://example.com/images/dslr_camera.jpg"
-  },
-  {
-    "productName": "Bluetooth Speaker",
-    "category": "Audio",
-    "price": 3499,
-    "description": "Portable Bluetooth speaker with 10-hour battery life and water-resistant design.",
-    "stock": 60,
-    "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
-  },
-  {
-    "productName": "DSLR Camera",
-    "category": "Cameras",
-    "price": 54999,
-    "description": "24.1 MP DSLR camera with 18-55mm lens kit and full HD video recording.",
-    "stock": 20,
-    "imageURL": "https://example.com/images/dslr_camera.jpg"
-  },
-  {
-    "productName": "Bluetooth Speaker",
-    "category": "Audio",
-    "price": 3499,
-    "description": "Portable Bluetooth speaker with 10-hour battery life and water-resistant design.",
-    "stock": 60,
-    "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
-  },
-  {
-    "productName": "DSLR Camera",
-    "category": "Cameras",
-    "price": 54999,
-    "description": "24.1 MP DSLR camera with 18-55mm lens kit and full HD video recording.",
-    "stock": 20,
-    "imageURL": "https://example.com/images/dslr_camera.jpg"
-  },
-  {
-    "productName": "Bluetooth Speaker",
-    "category": "Audio",
-    "price": 3499,
-    "description": "Portable Bluetooth speaker with 10-hour battery life and water-resistant design.",
-    "stock": 60,
-    "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
-  },
-  {
-    "productName": "DSLR Camera",
-    "category": "Cameras",
-    "price": 54999,
-    "description": "24.1 MP DSLR camera with 18-55mm lens kit and full HD video recording.",
-    "stock": 20,
-    "imageURL": "https://example.com/images/dslr_camera.jpg"
-  },
-  {
-    "productName": "Bluetooth Speaker",
-    "category": "Audio",
-    "price": 3499,
-    "description": "Portable Bluetooth speaker with 10-hour battery life and water-resistant design.",
-    "stock": 60,
-    "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
-  },
-  {
-    "productName": "DSLR Camera",
-    "category": "Cameras",
-    "price": 54999,
-    "description": "24.1 MP DSLR camera with 18-55mm lens kit and full HD video recording.",
-    "stock": 20,
-    "imageURL": "https://example.com/images/dslr_camera.jpg"
-  },
-  {
-    "productName": "Bluetooth Speaker",
-    "category": "Audio",
-    "price": 3499,
-    "description": "Portable Bluetooth speaker with 10-hour battery life and water-resistant design.",
-    "stock": 60,
-    "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
-  },
-  {
-    "productName": "DSLR Camera",
-    "category": "Cameras",
-    "price": 54999,
-    "description": "24.1 MP DSLR camera with 18-55mm lens kit and full HD video recording.",
-    "stock": 20,
-    "imageURL": "https://example.com/images/dslr_camera.jpg"
-  },
-  {
-    "productName": "Bluetooth Speaker",
-    "category": "Audio",
-    "price": 3499,
-    "description": "Portable Bluetooth speaker with 10-hour battery life and water-resistant design.",
-    "stock": 60,
-    "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
-  },
-  {
+    "id": 125,
     "productName": "DSLR Camera",
     "category": "Cameras",
     "price": 54999,

@@ -1,1 +1,1 @@
-export const BRAND_NAME = "Nilkanth Mart"
+export const BRAND_NAME = "NilkanthMart"
