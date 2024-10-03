@@ -4,7 +4,7 @@ import { RootState } from "../store"
 
 export interface Product {
   id: number
-  productName: string
+  name: string
   category: string
   price: number
   description: string

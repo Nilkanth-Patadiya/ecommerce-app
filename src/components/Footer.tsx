@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography"
 import MuiLink from "@mui/material/Link"
 import { BRAND_NAME } from "@/constants"
 
-export default function Footer() {
+function Footer() {
   return (
     <footer>
       <Typography
@@ -23,3 +23,4 @@ export default function Footer() {
     </footer>
   )
 }
+export default Footer

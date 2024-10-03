@@ -1,11 +1,20 @@
 "use client"
-import React, { useState } from "react"
-import { Button, Menu, MenuItem } from "@mui/material"
+import React from "react"
 import AccountCircleIcon from "@mui/icons-material/AccountCircle"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
+import Button from "@mui/material/Button"
+import Menu from "@mui/material/Menu"
+import MenuItem from "@mui/material/MenuItem"
 
-const ProfileMenuButton = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+const ProfileMenuButton = ({
+  label = "Profile",
+  handleLogOut,
+}: {
+  label: string
+  handleLogOut: () => void
+}) => {
+  const buttonRef = React.useRef<null | HTMLButtonElement>(null)
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
@@ -16,23 +25,26 @@ const ProfileMenuButton = () => {
   }
 
   return (
-    <div>
+    <>
       <Button
+        ref={buttonRef}
         variant="contained"
         disableElevation
         startIcon={<AccountCircleIcon />}
         endIcon={<KeyboardArrowDownIcon />}
         onClick={handleClick}
       >
-        Profile
+        {label}
       </Button>
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        MenuListProps={{
-          sx: {
-            width: anchorEl ? anchorEl.clientWidth : "auto", // Match the width of the button
+        slotProps={{
+          paper: {
+            style: {
+              width: buttonRef.current?.clientWidth,
+            },
           },
         }}
         anchorOrigin={{
@@ -40,9 +52,16 @@ const ProfileMenuButton = () => {
           horizontal: "left",
         }}
       >
-        <MenuItem onClick={handleClose}>Log Out</MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleLogOut()
+            handleClose()
+          }}
+        >
+          Log Out
+        </MenuItem>
       </Menu>
-    </div>
+    </>
   )
 }
 

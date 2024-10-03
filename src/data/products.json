@@ -1,56 +1,56 @@
 [
   {
     "id": 120,
-    "productName": "Ultra HD Smart TV",
+    "name": "Ultra HD Smart TV",
     "category": "Television",
     "price": 45999,
     "description": "55-inch Ultra HD 4K Smart TV with HDR and built-in streaming apps.",
     "stock": 25,
-    "imageURL": "https://example.com/images/ultra_hd_smart_tv.jpg"
+    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 121,
-    "productName": "Wireless Noise-Cancelling Headphones",
+    "name": "Wireless Headphones",
     "category": "Audio",
     "price": 12499,
     "description": "Over-ear headphones with active noise cancellation and 30-hour battery life.",
     "stock": 50,
-    "imageURL": "https://example.com/images/wireless_headphones.jpg"
+    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 122,
-    "productName": "Gaming Laptop",
+    "name": "Gaming Laptop",
     "category": "Computers",
     "price": 89999,
     "description": "High-performance gaming laptop with Intel i7 processor, 16GB RAM, and NVIDIA GTX 1660 Ti.",
     "stock": 15,
-    "imageURL": "https://example.com/images/gaming_laptop.jpg"
+    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 123,
-    "productName": "Smartwatch",
+    "name": "Smartwatch",
     "category": "Wearables",
     "price": 9999,
     "description": "Fitness tracking smartwatch with heart rate monitor, GPS, and 7-day battery life.",
     "stock": 40,
-    "imageURL": "https://example.com/images/smartwatch.jpg"
+    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 124,
-    "productName": "Bluetooth Speaker",
+    "name": "Bluetooth Speaker",
     "category": "Audio",
     "price": 3499,
     "description": "Portable Bluetooth speaker with 10-hour battery life and water-resistant design.",
     "stock": 60,
-    "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
+    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 125,
-    "productName": "DSLR Camera",
+    "name": "DSLR Camera",
     "category": "Cameras",
     "price": 54999,
     "description": "24.1 MP DSLR camera with 18-55mm lens kit and full HD video recording.",
     "stock": 20,
-    "imageURL": "https://example.com/images/dslr_camera.jpg"
+    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ]

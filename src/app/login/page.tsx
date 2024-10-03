@@ -56,7 +56,7 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
   },
 }))
 
-export default function SignIn() {
+function Login() {
   const [emailError, setEmailError] = React.useState(false)
   const [emailErrorMessage, setEmailErrorMessage] = React.useState("")
   const [passwordError, setPasswordError] = React.useState(false)
@@ -218,3 +218,4 @@ export default function SignIn() {
     </SignInContainer>
   )
 }
+export default Login
