@@ -1,10 +1,12 @@
 [
   {
+    "id": "user1",
     "email": "customer@example.com",
     "password": "customer123",
     "role": "customer"
   },
   {
+    "id": "user2",
     "email": "admin@example.com",
     "password": "admin123",
     "role": "admin"

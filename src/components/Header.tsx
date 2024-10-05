@@ -12,18 +12,19 @@ import MenuItem from "@mui/material/MenuItem"
 import LocalMallIcon from "@mui/icons-material/LocalMall"
 import { BRAND_NAME } from "@/constants"
 import { useAppDispatch, useAppSelector } from "@/app/hooks"
-import { logout, selectLoggedInUserRole } from "@/app/login/loggedInUserSlice"
+import { logout, selectLoggedInUser } from "@/app/login/loggedInUserSlice"
 import Link from "@mui/material/Link"
 import NextLink from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import ProfileMenuButton from "./ProfileMenuButton"
 import Badge from "@mui/material/Badge"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
+import { selectUserRoleByID } from "@/app/login/usersSlice"
+import Tooltip from "@mui/material/Tooltip"
 
 const allPages = [
   { label: "Products", path: "/products" },
   { label: "My Orders", path: "/orders" },
-  { label: "View Cart", path: "/cart" },
   { label: "Dashboard", path: "/admin-dashboard" },
   { label: "Customers", path: "/customers" },
 ]
@@ -47,7 +48,10 @@ function Header() {
 
   const pathname = usePathname()
   const dispatch = useAppDispatch()
-  const loggedInUserRole = useAppSelector(selectLoggedInUserRole)
+  const userId = useAppSelector(selectLoggedInUser)
+  const loggedInUserRole = useAppSelector((state) =>
+    selectUserRoleByID(state, userId)
+  )
   const userPages =
     loggedInUserRole === "admin" ? options.slice(3) : options.slice(0, 2)
 
@@ -56,7 +60,11 @@ function Header() {
     router.push("/login")
   }
   return (
-    <AppBar>
+    <AppBar
+      position="sticky"
+      component="nav"
+      sx={{ backdropFilter: "blur(14px)" }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* This is for large screens md */}
@@ -150,11 +158,20 @@ function Header() {
             {BRAND_NAME}
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton color="inherit" aria-label="cart" sx={{ mr: 2 }}>
-              <Badge color="secondary" badgeContent={0} showZero>
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
+            {loggedInUserRole === "customer" && (
+              <Tooltip title="View Cart" arrow>
+                <IconButton
+                  color="inherit"
+                  aria-label="cart"
+                  sx={{ mr: 2 }}
+                  onClick={() => router.push("/cart")}
+                >
+                  <Badge color="secondary" badgeContent={0} showZero>
+                    <ShoppingCartIcon />
+                  </Badge>
+                </IconButton>
+              </Tooltip>
+            )}
             <ProfileMenuButton
               label={loggedInUserRole as string}
               handleLogOut={handleLogOut}

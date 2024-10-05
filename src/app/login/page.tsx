@@ -85,7 +85,7 @@ function Login() {
         )
       }
       if (!!savedUser && savedUser.password === password) {
-        dispatch(login(savedUser))
+        dispatch(login(savedUser.id))
         switch (savedUser.role) {
           case "customer":
             router.push("/products")
@@ -138,7 +138,6 @@ function Login() {
             alignItems: "center",
             justifyContent: "center",
             width: 1,
-            mb: 2,
           }}
         >
           <LocalMallIcon fontSize="large" sx={{ display: "flex", mr: 1 }} />
@@ -157,7 +156,7 @@ function Login() {
             {BRAND_NAME}
           </Typography>
         </Box>
-        <Typography variant="h4" fontWeight="550" sx={{ width: "100%" }}>
+        <Typography variant="h5" fontWeight="550" sx={{ width: "100%" }}>
           Log in
         </Typography>
         <Box

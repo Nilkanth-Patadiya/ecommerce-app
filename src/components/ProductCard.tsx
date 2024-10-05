@@ -1,6 +1,6 @@
 import { Product } from "@/app/products/productsSlice"
 import { Card, CardContent, CardMedia, Typography, Button } from "@mui/material"
-
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart"
 const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Card>
@@ -25,6 +25,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           variant="contained"
           color="primary"
           style={{ marginTop: "10px" }}
+          startIcon={<AddShoppingCartIcon />}
         >
           Add to Cart
         </Button>

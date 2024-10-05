@@ -1,19 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { User } from "./usersSlice"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from "../store"
 
-const initialState: User | null = null
+const initialState: string = ""
 const loggedInUserSlice = createSlice({
   name: "loggedInUser",
   initialState,
   reducers: {
-    login: (_state, action) => action.payload,
-    logout: () => null,
+    login: (_state, action: PayloadAction<string>) => action.payload,
+    logout: () => "",
   },
 })
 
 export const { login, logout } = loggedInUserSlice.actions
-export const selectLoggedInUserRole = (
-  state: RootState
-): "customer" | "admin" | undefined => state.loggedInUser?.role
+export const selectLoggedInUser = (state: RootState): string =>
+  state.loggedInUser
 export default loggedInUserSlice.reducer

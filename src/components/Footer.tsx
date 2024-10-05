@@ -1,7 +1,7 @@
 import * as React from "react"
 import Typography from "@mui/material/Typography"
 import MuiLink from "@mui/material/Link"
-import { BRAND_NAME } from "@/constants"
+import { BRAND_NAME, githubProfile } from "@/constants"
 
 function Footer() {
   return (
@@ -15,7 +15,12 @@ function Footer() {
         }}
       >
         {"Copyright © "}
-        <MuiLink color="inherit" href="https://mui.com/">
+        <MuiLink
+          color="inherit"
+          href={githubProfile}
+          target="_blank"
+          rel="noopener"
+        >
           {BRAND_NAME}
         </MuiLink>
         {` ${new Date().getFullYear()}`}.
