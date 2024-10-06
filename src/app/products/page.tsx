@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid2"
 import ProductCard from "@/components/ProductCard"
 import { addProduct, selectCartItems } from "../cart/cartSlice"
 
-function Home() {
+function Products() {
   const products = useAppSelector(selectProducts)
   const cartItems = useAppSelector(selectCartItems)
   const dispatch = useAppDispatch()
@@ -38,4 +38,4 @@ function Home() {
     </Container>
   )
 }
-export default Home
+export default Products

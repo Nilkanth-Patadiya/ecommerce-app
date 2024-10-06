@@ -7,6 +7,7 @@ export interface User {
   email: string
   password: string
   role: "customer" | "admin"
+  discountFrequency?: number
 }
 const users = usersData as User[]
 
@@ -25,4 +26,6 @@ export const selectUserRoleByID = (
   userId: string
 ): "customer" | "admin" | undefined =>
   state.users.find((user) => user.id === userId)?.role
+export const selectUserDiscountFrequency = (state: RootState, userId: string) =>
+  state.users.find((user) => user.id === userId)?.discountFrequency
 export default usersSlice.reducer

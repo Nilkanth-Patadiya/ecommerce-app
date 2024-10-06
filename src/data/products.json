@@ -6,16 +6,7 @@
     "price": 45999,
     "description": "55-inch Ultra HD 4K Smart TV with HDR and built-in streaming apps.",
     "stock": 25,
-    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    "id": 121,
-    "name": "Wireless Headphones",
-    "category": "Audio",
-    "price": 12499,
-    "description": "Over-ear headphones with active noise cancellation and 30-hour battery life.",
-    "stock": 50,
-    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageURL": "https://images.unsplash.com/photo-1461151304267-38535e780c79?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "id": 122,
@@ -33,7 +24,7 @@
     "price": 9999,
     "description": "Fitness tracking smartwatch with heart rate monitor, GPS, and 7-day battery life.",
     "stock": 40,
-    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageURL": "https://images.unsplash.com/photo-1523755621014-30c8a5029566?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fFNtYXJ0d2F0Y2h8ZW58MHwwfDB8fHwy"
   },
   {
     "id": 124,
@@ -42,7 +33,7 @@
     "price": 3499,
     "description": "Portable Bluetooth speaker with 10-hour battery life and water-resistant design.",
     "stock": 60,
-    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageURL": "https://images.unsplash.com/photo-1589256469067-ea99122bbdc4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Qmx1ZXRvb3RoJTIwU3BlYWtlcnxlbnwwfDB8MHx8fDI%3D"
   },
   {
     "id": 125,
@@ -51,6 +42,15 @@
     "price": 54999,
     "description": "24.1 MP DSLR camera with 18-55mm lens kit and full HD video recording.",
     "stock": 20,
-    "imageURL": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageURL": "https://images.unsplash.com/photo-1606986628470-26a67fa4730c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fERTTFIlMjBDYW1lcmF8ZW58MHwwfDB8fHwy"
+  },
+  {
+    "id": 121,
+    "name": "Wireless Headphones",
+    "category": "Audio",
+    "price": 12499,
+    "description": "Over-ear headphones with active noise cancellation and 30-hour battery life.",
+    "stock": 50,
+    "imageURL": "https://images.unsplash.com/photo-1619296794093-3df1ae6819a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fFdpcmVsZXNzJTIwSGVhZHBob25lc3xlbnwwfDB8MHx8fDI%3D"
   }
 ]

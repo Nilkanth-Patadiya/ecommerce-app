@@ -57,11 +57,7 @@ function Header() {
   }
 
   return (
-    <AppBar
-      position="sticky"
-      component="nav"
-      sx={{ backdropFilter: "blur(14px)" }}
-    >
+    <AppBar component="nav">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* This is for large screens md */}

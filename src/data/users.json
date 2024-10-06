@@ -3,7 +3,8 @@
     "id": "user1",
     "email": "customer@example.com",
     "password": "customer123",
-    "role": "customer"
+    "role": "customer",
+    "discountFrequency": 3
   },
   {
     "id": "user2",

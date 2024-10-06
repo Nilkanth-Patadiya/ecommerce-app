@@ -6,7 +6,7 @@ interface CartItem {
   quantity: number
 }
 
-interface Cart {
+export interface Cart {
   id: number
   userId: string
   items: CartItem[]
@@ -55,14 +55,22 @@ const cartSlice = createSlice({
       )
 
       if (existingItem) {
-        state.totalPrice -= existingItem.quantity * price
-        state.items = state.items.filter((item) => item.productId !== productId)
+        if (existingItem.quantity > 1) {
+          existingItem.quantity -= 1
+          state.totalPrice -= price
+        } else {
+          state.totalPrice -= existingItem.quantity * price
+          state.items = state.items.filter(
+            (item) => item.productId !== productId
+          )
+        }
       }
     },
+    clearCart: () => initialCartState,
   },
 })
 
-export const { addProduct, removeProduct } = cartSlice.actions
+export const { addProduct, removeProduct, clearCart } = cartSlice.actions
 export const selectCart = (state: RootState) => state.cart
 export const selectCartItems = (state: RootState) => state.cart.items
 export const selectCartTotalPrice = (state: RootState) => state.cart.totalPrice

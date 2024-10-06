@@ -17,6 +17,7 @@ const ProductCard = ({
         height="140"
         image={product.imageURL}
         alt={product.name}
+        sx={{ objectFit: "cover" }}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

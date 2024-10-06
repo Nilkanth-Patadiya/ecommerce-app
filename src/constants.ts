@@ -1,5 +1,6 @@
 export const BRAND_NAME = "NilkanthMart"
-export const githubProfile = "https://github.com/Nilkanth-Patadiya"
+export const githubRepoLink =
+  "https://github.com/Nilkanth-Patadiya/ecommerce-app"
 export const allPages = [
   { label: "Products", path: "/products" },
   { label: "My Orders", path: "/orders" },

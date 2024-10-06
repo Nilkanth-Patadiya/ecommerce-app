@@ -1,7 +1,7 @@
 import * as React from "react"
 import Typography from "@mui/material/Typography"
 import MuiLink from "@mui/material/Link"
-import { BRAND_NAME, githubProfile } from "@/constants"
+import { BRAND_NAME, githubRepoLink } from "@/constants"
 
 function Footer() {
   return (
@@ -11,13 +11,14 @@ function Footer() {
         align="center"
         sx={{
           color: "text.secondary",
-          py: 1,
+          py: 2,
         }}
       >
         {"Copyright © "}
         <MuiLink
+          fontWeight={"bold"}
           color="inherit"
-          href={githubProfile}
+          href={githubRepoLink}
           target="_blank"
           rel="noopener"
         >
