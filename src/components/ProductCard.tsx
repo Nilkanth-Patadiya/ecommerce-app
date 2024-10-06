@@ -1,7 +1,15 @@
 import { Product } from "@/app/products/productsSlice"
 import { Card, CardContent, CardMedia, Typography, Button } from "@mui/material"
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart"
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({
+  product,
+  disableBtn,
+  handleAddCart,
+}: {
+  product: Product
+  disableBtn: boolean
+  handleAddCart: () => void
+}) => {
   return (
     <Card>
       <CardMedia
@@ -26,6 +34,8 @@ const ProductCard = ({ product }: { product: Product }) => {
           color="primary"
           style={{ marginTop: "10px" }}
           startIcon={<AddShoppingCartIcon />}
+          onClick={() => handleAddCart()}
+          disabled={disableBtn}
         >
           Add to Cart
         </Button>
