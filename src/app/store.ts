@@ -1,19 +1,29 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import productsReducer from "@/app/products/productsSlice"
 import usersReducer from "@/app/login/usersSlice"
 import loggedInUserReducer from "@/app/login/loggedInUserSlice"
 import cartReducer from "@/app/cart/cartSlice"
 import ordersReducer from "@/app/orders/orderSlice"
+import storageSession from "redux-persist/lib/storage/session"
+import { persistStore, persistReducer } from "redux-persist"
 
-export const store = configureStore({
-  reducer: {
-    users: usersReducer,
-    loggedInUser: loggedInUserReducer,
-    products: productsReducer,
-    cart: cartReducer,
-    orders: ordersReducer,
-  },
+const rootReducer = combineReducers({
+  users: usersReducer,
+  loggedInUser: loggedInUserReducer,
+  products: productsReducer,
+  cart: cartReducer,
+  orders: ordersReducer,
 })
+const persistConfig = {
+  key: "root",
+  storage: storageSession,
+}
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+export const store = configureStore({
+  reducer: persistedReducer,
+})
+
+export const persistor = persistStore(store)
 
 // Infer the type of `store`
 export type AppStore = typeof store
