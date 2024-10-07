@@ -49,7 +49,7 @@ function Header() {
     selectUserRoleByID(state, userId)
   )
   const userPages =
-    loggedInUserRole === "admin" ? options.slice(3) : options.slice(0, 2)
+    loggedInUserRole === "admin" ? options.slice(2) : options.slice(0, 2)
 
   const handleLogOut = () => {
     dispatch(logout())
@@ -90,7 +90,7 @@ function Header() {
                 key={label}
                 component={NextLink}
                 color="inherit"
-                underline={pathname === path ? "always" : "hover"}
+                underline={"hover"}
                 href={path}
                 fontWeight={pathname === path ? "600" : "400"}
               >

@@ -35,7 +35,7 @@ const Orders = () => {
                 <TableCell>
                   {new Date(order.timestamp).toLocaleDateString("en-US", {
                     year: "numeric",
-                    month: "short",
+                    month: "long",
                     day: "numeric",
                   })}
                 </TableCell>
