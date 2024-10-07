@@ -1,5 +1,8 @@
 "use client"
 import React from "react"
+import Image from "next/image"
+import MuiLink from "@mui/material/Link"
+import NextLink from "next/link"
 import Container from "@mui/material/Container"
 import Grid from "@mui/material/Grid2"
 import Table from "@mui/material/Table"
@@ -36,9 +39,14 @@ import TextField from "@mui/material/TextField"
 import { addOrder, selectOrdersByUser } from "../orders/orderSlice"
 import { selectLoggedInUser } from "../login/loggedInUserSlice"
 import { selectUserDiscountFrequency } from "../login/usersSlice"
+import Chip from "@mui/material/Chip"
 
 const Cart = () => {
+  const [isOrderPlaced, setIsOrderPlaced] = React.useState(false)
   const [input, setInput] = React.useState("")
+  const orderNumber = React.useRef(
+    `ON${Math.floor(1000 + Math.random() * 9000)}`
+  )
   const [errorMessage, setErrorMessage] = React.useState("")
   const [availableCode, setAvailableCode] = React.useState("")
   const [appliedCode, setAppliedCode] = React.useState("")
@@ -81,11 +89,16 @@ const Cart = () => {
     } else setErrorMessage("Invalid coupon code, please check.")
   }
 
+  function handleDeleteCode() {
+    setAvailableCode(appliedCode)
+    setAppliedCode("")
+    setInput("")
+  }
+
   function handlePlaceOrder() {
-    const randomId = `ON${Math.floor(1000 + Math.random() * 9000)}`
     dispatch(
       addOrder({
-        id: randomId,
+        id: orderNumber.current,
         userId,
         cart,
         totalPrice: finalAmount,
@@ -95,6 +108,7 @@ const Cart = () => {
       })
     )
     dispatch(clearCart())
+    setIsOrderPlaced(true)
   }
 
   // Generate coupon code if criteria meets
@@ -105,6 +119,58 @@ const Cart = () => {
     }
   }, [orderCount, userDiscountFrequency])
 
+  if (!cartItems.length && !isOrderPlaced) {
+    return (
+      <Container>
+        <Grid container alignItems={"center"} justifyContent={"center"} p={2}>
+          <Grid size={4}>
+            <Box sx={{ width: 1, height: 250, position: "relative" }}>
+              <Image src={"/empty_cart.svg"} alt={"empty_cart"} fill />
+            </Box>
+            <Typography
+              variant="h5"
+              align="center"
+              my={2}
+              color="textSecondary"
+            >
+              Your cart is empty, start shopping!
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
+    )
+  }
+  if (isOrderPlaced) {
+    return (
+      <Container>
+        <Grid container alignItems={"center"} justifyContent={"center"} p={2}>
+          <Grid size={4}>
+            <Box sx={{ width: 1, height: 250, position: "relative" }}>
+              <Image
+                src={"/order_confirmed.svg"}
+                alt={"order_confirmed"}
+                fill
+              />
+            </Box>
+            <Typography
+              variant="h5"
+              align="center"
+              my={2}
+              color="textSecondary"
+            >
+              Thank you for your order!
+            </Typography>
+            <Typography align="center">
+              Your order number is{" "}
+              <MuiLink component={NextLink} href={"/orders"}>
+                {"#" + orderNumber.current}
+              </MuiLink>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
+    )
+  }
   return (
     <Container>
       <Grid container columnSpacing={4}>
@@ -249,46 +315,56 @@ const Cart = () => {
                 })}
               </Typography>
             </RowBox>
-            <RowBox>
-              <TextField
-                id="coupon"
-                variant="outlined"
-                disabled={!!appliedCode}
-                error={!!errorMessage}
-                helperText={errorMessage}
-                fullWidth
-                placeholder="Enter coupon code"
-                value={input}
-                onChange={(event) => {
-                  setInput(event.target.value)
-                }}
-                sx={{
-                  "& .MuiInputBase-input": {
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    py: 1,
-                  },
-                  "& .MuiInputBase-root": {
-                    borderRadius: 0,
-                  },
-                }}
-              />
-              <Button
-                variant="outlined"
-                sx={{ borderRadius: 0 }}
-                onClick={handleApplyCode}
-                disabled={!!appliedCode}
-              >
-                Apply
-              </Button>
-            </RowBox>
+            <Box sx={{ width: 1 }}>
+              <RowBox>
+                <TextField
+                  id="coupon"
+                  variant="outlined"
+                  disabled={!!appliedCode}
+                  error={!!errorMessage}
+                  fullWidth
+                  placeholder="Enter coupon code"
+                  value={input}
+                  onChange={(event) => {
+                    setInput(event.target.value)
+                  }}
+                  sx={{
+                    "& .MuiInputBase-input": {
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      py: 1,
+                    },
+                    "& .MuiInputBase-root": {
+                      borderRadius: 0,
+                    },
+                  }}
+                />
+                <Button
+                  variant="outlined"
+                  sx={{ borderRadius: 0 }}
+                  onClick={handleApplyCode}
+                  disabled={!!appliedCode}
+                >
+                  Apply
+                </Button>
+              </RowBox>
+              {!!errorMessage && (
+                <Typography variant="caption" color="error">
+                  {errorMessage}
+                </Typography>
+              )}
+            </Box>
             <Typography>Applied coupon code:</Typography>
-            <Typography
-              color={appliedCode ? "success" : "textPrimary"}
-              sx={{ fontWeight: "bold" }}
-            >
-              {appliedCode || "None"}
-            </Typography>
+            {appliedCode ? (
+              <Chip
+                sx={{ width: 120 }}
+                color="success"
+                label={appliedCode}
+                onDelete={handleDeleteCode}
+              />
+            ) : (
+              <Typography sx={{ fontWeight: "bold" }}>{"None"}</Typography>
+            )}
             <Typography>Available coupon code:</Typography>
             <Typography sx={{ fontWeight: "bold" }}>
               {availableCode || "None"}
