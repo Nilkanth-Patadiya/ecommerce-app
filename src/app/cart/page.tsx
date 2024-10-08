@@ -363,10 +363,13 @@ const Cart = () => {
                 onDelete={handleDeleteCode}
               />
             ) : (
-              <Typography sx={{ fontWeight: "bold" }}>{"None"}</Typography>
+              <Typography color="textSecondary">{"None"}</Typography>
             )}
             <Typography>Available coupon code:</Typography>
-            <Typography sx={{ fontWeight: "bold" }}>
+            <Typography
+              color="textSecondary"
+              sx={{ fontWeight: availableCode ? "bold" : "normal" }}
+            >
               {availableCode || "None"}
             </Typography>
             <Button

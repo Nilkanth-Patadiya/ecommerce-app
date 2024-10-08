@@ -90,7 +90,7 @@ function Header() {
                 key={label}
                 component={NextLink}
                 color="inherit"
-                underline={"hover"}
+                underline={pathname === path ? "always" : "hover"}
                 href={path}
                 fontWeight={pathname === path ? "600" : "400"}
               >

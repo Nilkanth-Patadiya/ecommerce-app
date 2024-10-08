@@ -23,7 +23,7 @@ const ProductCard = ({
         <Typography gutterBottom variant="h5" component="div">
           {product.name}
         </Typography>
-        <Typography variant="h6" color="text.secondary">
+        <Typography variant="h6" color="textSecondary">
           {product.price.toLocaleString("en-IN", {
             style: "currency",
             currency: "INR",

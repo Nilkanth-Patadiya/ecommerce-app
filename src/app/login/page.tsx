@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation"
 import { selectUsers } from "./usersSlice"
 import { useAppDispatch, useAppSelector } from "../hooks"
 import { login } from "./loggedInUserSlice"
+import { encodePassword } from "@/utils"
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -69,7 +70,7 @@ function Login() {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const email = formData.get("email")
-    const password = formData.get("password")
+    const password = formData.get("password") as string
     if (validateInputs()) {
       const savedUser = users.find((user) => user.email === email)
       if (!savedUser) {
@@ -78,13 +79,13 @@ function Login() {
           "We couldn’t find an account with that email address."
         )
       }
-      if (!!savedUser && savedUser.password !== password) {
+      if (!!savedUser && savedUser.password !== encodePassword(password)) {
         setPasswordError(true)
         setPasswordErrorMessage(
           "The password you entered is incorrect. Please try again."
         )
       }
-      if (!!savedUser && savedUser.password === password) {
+      if (!!savedUser && savedUser.password === encodePassword(password)) {
         dispatch(login(savedUser.id))
         switch (savedUser.role) {
           case "customer":
@@ -92,9 +93,6 @@ function Login() {
             break
           case "admin":
             router.push("/admin-dashboard")
-            break
-          default:
-            // Handle other roles or default case
             break
         }
       }

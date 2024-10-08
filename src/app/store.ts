@@ -5,7 +5,16 @@ import loggedInUserReducer from "@/app/login/loggedInUserSlice"
 import cartReducer from "@/app/cart/cartSlice"
 import ordersReducer from "@/app/orders/orderSlice"
 import storageSession from "redux-persist/lib/storage/session"
-import { persistStore, persistReducer } from "redux-persist"
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from "redux-persist"
 
 const rootReducer = combineReducers({
   users: usersReducer,
@@ -19,8 +28,15 @@ const persistConfig = {
   storage: storageSession,
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
+
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 })
 
 export const persistor = persistStore(store)

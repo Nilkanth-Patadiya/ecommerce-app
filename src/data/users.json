@@ -2,14 +2,14 @@
   {
     "id": "user1",
     "email": "customer@example.com",
-    "password": "customer123",
+    "password": "Y3VzdG9tZXIxMjM=",
     "role": "customer",
     "discountFrequency": 3
   },
   {
     "id": "user2",
     "email": "admin@example.com",
-    "password": "admin123",
+    "password": "YWRtaW4xMjM=",
     "role": "admin"
   }
 ]

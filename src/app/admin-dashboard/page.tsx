@@ -9,22 +9,24 @@ import {
   selectTotalItemsPurchased,
   selectTotalPurchaseAmount,
   selectTotalDiscountAmount,
+  selectDiscountCodes,
 } from "../orders/orderSlice"
-import { Container } from "@mui/material"
+import Container from "@mui/material/Container"
+import Stack from "@mui/material/Stack"
+import Chip from "@mui/material/Chip"
+import { TypographyHeading } from "@/components/StyledComponents"
 
 const AdminDashboard = () => {
-  const totalItemsPurchased = useAppSelector((state) =>
-    selectTotalItemsPurchased(state)
-  )
-  const totalPurchaseAmount = useAppSelector((state) =>
-    selectTotalPurchaseAmount(state)
-  )
-  const totalDiscountAmount = useAppSelector((state) =>
-    selectTotalDiscountAmount(state)
-  )
+  const totalItemsPurchased = useAppSelector(selectTotalItemsPurchased)
+  const totalPurchaseAmount = useAppSelector(selectTotalPurchaseAmount)
+  const totalDiscountAmount = useAppSelector(selectTotalDiscountAmount)
+  const discountCodes = useAppSelector(selectDiscountCodes)
 
   return (
     <Container>
+      <TypographyHeading variant={"h4"} gutterBottom mt={1}>
+        Admin Dashboard
+      </TypographyHeading>
       <Grid container spacing={3}>
         <Grid size={{ xs: 12, sm: 4 }}>
           <Card>
@@ -43,7 +45,11 @@ const AdminDashboard = () => {
                 Total Purchase Amount
               </Typography>
               <Typography variant="h4">
-                ₹{totalPurchaseAmount.toFixed(2)}
+                {totalPurchaseAmount.toLocaleString("en-IN", {
+                  style: "currency",
+                  currency: "INR",
+                  maximumFractionDigits: 0,
+                })}
               </Typography>
             </CardContent>
           </Card>
@@ -55,10 +61,29 @@ const AdminDashboard = () => {
                 Total Discount Amount
               </Typography>
               <Typography variant="h4">
-                ₹{totalDiscountAmount.toFixed(2)}
+                {totalDiscountAmount.toLocaleString("en-IN", {
+                  style: "currency",
+                  currency: "INR",
+                  maximumFractionDigits: 0,
+                })}
               </Typography>
             </CardContent>
           </Card>
+        </Grid>
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <Typography variant="h5" gutterBottom color="textSecondary">
+            List of Used Discount Codes
+          </Typography>
+          <Stack direction={"row"} flexWrap={"wrap"}>
+            {discountCodes.map((discountCode, i) => (
+              <Chip
+                key={i}
+                label={discountCode}
+                color="primary"
+                variant="outlined"
+              />
+            ))}
+          </Stack>
         </Grid>
       </Grid>
     </Container>
