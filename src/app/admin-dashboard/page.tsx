@@ -74,7 +74,7 @@ const AdminDashboard = () => {
           <Typography variant="h5" gutterBottom color="textSecondary">
             List of Used Discount Codes
           </Typography>
-          <Stack direction={"row"} flexWrap={"wrap"}>
+          <Stack direction={"row"} flexWrap={"wrap"} spacing={2}>
             {discountCodes.map((discountCode, i) => (
               <Chip
                 key={i}
