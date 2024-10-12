@@ -10,7 +10,7 @@ const ProfileMenuButton = ({
   label = "Profile",
   handleLogOut,
 }: {
-  label: string
+  label?: string
   handleLogOut: () => void
 }) => {
   const buttonRef = React.useRef<null | HTMLButtonElement>(null)

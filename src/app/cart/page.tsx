@@ -16,6 +16,10 @@ import Box from "@mui/material/Box"
 import Close from "@mui/icons-material/Close"
 import Typography from "@mui/material/Typography"
 import Stack from "@mui/material/Stack"
+import Divider from "@mui/material/Divider"
+import Button from "@mui/material/Button"
+import TextField from "@mui/material/TextField"
+import Chip from "@mui/material/Chip"
 import {
   TypographyHeading,
   ImgImage,
@@ -33,20 +37,14 @@ import {
   selectCartItems,
   selectCartTotalPrice,
 } from "./cartSlice"
-import Divider from "@mui/material/Divider"
-import Button from "@mui/material/Button"
-import TextField from "@mui/material/TextField"
 import { addOrder, selectOrdersByUser } from "../orders/orderSlice"
 import { selectLoggedInUser } from "../login/loggedInUserSlice"
 import { selectUserDiscountFrequency } from "../login/usersSlice"
-import Chip from "@mui/material/Chip"
+import { fallbackProduct } from "@/constants"
 
 const Cart = () => {
   const [isOrderPlaced, setIsOrderPlaced] = React.useState(false)
   const [input, setInput] = React.useState("")
-  const orderNumber = React.useRef(
-    `ON${Math.floor(1000 + Math.random() * 9000)}`
-  )
   const [errorMessage, setErrorMessage] = React.useState("")
   const [availableCode, setAvailableCode] = React.useState("")
   const [appliedCode, setAppliedCode] = React.useState("")
@@ -60,20 +58,15 @@ const Cart = () => {
   const userDiscountFrequency = useAppSelector((state) =>
     selectUserDiscountFrequency(state, userId)
   )
+
+  const orderNumber = React.useRef(
+    `ON${orderCount.toString().padStart(4, "0")}`
+  )
   const shippingCharge = 0
   const discountAmount = appliedCode ? cartTotalPrice * 0.1 : 0
   const finalAmount = cartTotalPrice - discountAmount - shippingCharge
   const dispatch = useAppDispatch()
 
-  const fallbackProduct: Product = {
-    id: 0,
-    name: "Product1",
-    category: "category1",
-    price: 0,
-    description: "No description available",
-    stock: 0,
-    imageURL: "default-image-url",
-  }
   // Function to get product details by ID
   function getProductById(productId: number): Product {
     return (
@@ -357,7 +350,7 @@ const Cart = () => {
             <Typography>Applied coupon code:</Typography>
             {appliedCode ? (
               <Chip
-                sx={{ width: 120 }}
+                sx={{ minWidth: 120, maxWidth: 150 }}
                 color="success"
                 label={appliedCode}
                 onDelete={handleDeleteCode}

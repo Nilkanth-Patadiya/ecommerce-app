@@ -13,6 +13,10 @@ import { useAppSelector } from "../hooks"
 
 const Orders = () => {
   const orders = useAppSelector(selectOrders)
+  const sortedOrders = orders
+    ? [...orders].sort((a, b) => b.timestamp - a.timestamp)
+    : []
+
   return (
     <Container>
       <TypographyHeading variant={"h4"} gutterBottom mt={1}>
@@ -29,7 +33,7 @@ const Orders = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {orders.map((order) => (
+            {sortedOrders.map((order) => (
               <TableRow key={order.id}>
                 <TableCell>{order.id}</TableCell>
                 <TableCell>
