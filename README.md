@@ -22,7 +22,6 @@
 Here is a summary of the NilkanthMart e-commerce web application:
 - **User Roles**: The app supports two login roles: **Customer** and **Admin**.
 - **Customer Features**: Customers can browse products, add items to the cart, adjust quantities, remove products, apply coupon codes, place orders, and view order history.
-- **Order Management**: Customers can see all their past orders in the orders page.
 - **Admin Dashboard**: Admins can view statistics like total items purchased, total amount, discount amounts, and a list of used discount codes.
 - **Customer Management**: Admins can set discount frequencies, allowing every nth order from a customer to receive a 10% discount coupon (n can be set from 0 to 20).
 
